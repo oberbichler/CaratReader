@@ -535,6 +535,30 @@ namespace Carat
             Move();
         }
 
+        [Serializable]
+        public class ParserException : Exception
+        {
+            public ParserException()
+                : base()
+            { }
+
+            public ParserException(string message)
+                : base($"{message}")
+            { }
+
+            public ParserException(string message, int lineNumber)
+                : base($"{message} (Line {lineNumber})")
+            { }
+
+            public ParserException(string message, Exception innerException)
+                : base(message, innerException)
+            { }
+
+            public ParserException(string message, int lineNumber, Exception innerException)
+                : base($"{message} (Line {lineNumber})", innerException)
+            { }
+        }
+
 
         private readonly TextReader _textReader;
 
