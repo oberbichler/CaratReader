@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -524,13 +524,6 @@ namespace Carat
         public Exception NewDuplicateTokenException()
         {
             return new ParserException($"Duplicate '{CurrentToken}'", CurrentLineNumber);
-        }
-
-
-        public void AssertIsSet<T>(T value, string name)
-        {
-            if (value == null)
-                throw new ParserException($"\"{name}\" not specified", CurrentLineNumber);
         }
 
 
